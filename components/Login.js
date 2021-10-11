@@ -11,14 +11,12 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'row',            
       backgroundColor: 'rgba(255,255,255,0.1)',
       color: "#ffffff",
-      textAlign: "center",
-      minWidth: '20rem',
+      textAlign: "center",      
       justifyContent: 'center',
       padding: '1.5rem',
-      margin: '1.5rem'
     },
     textBox: {
-        minWidth: '15rem'
+        minWidth: '14rem'
     },
     botao: {
         color: "#ffffff",
