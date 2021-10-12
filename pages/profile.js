@@ -13,12 +13,10 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',            
         backgroundColor: 'rgba(255,255,255,0.1)',
         color: "#ffffff",
-        textAlign: "center",
-        minWidth: '20rem',
+        textAlign: "center",        
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '1.5rem',
-        margin: '1.5rem'
+        padding: '1.5rem',        
     },    
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
