@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Avatar, AppBar, Button, Hidden, IconButton, Drawer, List, ListItem } from "@material-ui/core"
-import { Home as HomeIcon, Menu as MenuIcon, ExitToApp, Settings } from "@material-ui/icons"
+import { Home as HomeIcon, Menu as MenuIcon, ExitToApp, Settings, VpnKey } from "@material-ui/icons"
 import { makeStyles } from "@material-ui/styles";
 import Image from 'next/image'
 import classNames from "classnames";
@@ -62,7 +62,7 @@ export default function Header(props) {
     const { corInicial, changeColorOnScroll } = props;
     const [cor, setCor] = useState(corInicial);
     const [mobileOpen, setMobileOpen] = useState(false);  
-    const { user, signOutGoogle } = useAuth();
+    const { user, signInWithGoogle, signOutGoogle } = useAuth();
 
     const headerColorChange = () => {
 
@@ -109,8 +109,9 @@ export default function Header(props) {
                     ><MenuIcon /></IconButton>
                 </Hidden>
                 <Hidden smDown implementation="css">
-                    <Link href="/" passHref><Button className={classes.botao}><HomeIcon className={classes.icone} />Início</Button></Link>
-                    {user?.isAdmin && <Link href="/admin" passHref><Button className={classes.botao}><Settings className={classes.icone} />Admin</Button></Link>}
+                    {user ? <Link href="/" passHref><Button className={classes.botao}><HomeIcon className={classes.icone} />Início</Button></Link>
+                        : <Button onClick={signInWithGoogle} className={classes.botao}><VpnKey className={classes.icone} />Entrar</Button>}
+                    {user?.isAdmin && <Button className={classes.botao}><Settings className={classes.icone} />Admin</Button>}
                     {user && <Link href="/profile" passHref><Button className={classes.botao}>
                         <Avatar
                             alt={user.name}
