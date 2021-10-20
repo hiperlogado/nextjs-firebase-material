@@ -111,7 +111,7 @@ export default function Header(props) {
                 <Hidden smDown implementation="css">
                     {user ? <Link href="/" passHref><Button className={classes.botao}><HomeIcon className={classes.icone} />Início</Button></Link>
                         : <Button onClick={signInWithGoogle} className={classes.botao}><VpnKey className={classes.icone} />Entrar</Button>}
-                    {user?.isAdmin && <Button className={classes.botao}><Settings className={classes.icone} />Admin</Button>}
+                    {user?.isAdmin && <Link href="/admin" passHref><Button className={classes.botao}><Settings className={classes.icone} />Admin</Button></Link>}
                     {user && <Link href="/profile" passHref><Button className={classes.botao}>
                         <Avatar
                             alt={user.name}
